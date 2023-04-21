@@ -1,0 +1,52 @@
+plugins {
+    id 'java'
+}
+
+configurations.all {
+    resolutionStrategy.eachDependency { DependencyResolveDetails details ->
+        if (details.requested.group == 'org.apache.httpcomponents' && details.requested.name == 'httpclient' && details.requested.version.startsWith("4.5")) {
+            details.useVersion '4.5.13'
+            details.because 'Earlier versions of 4.5.x contain a CVE'
+        }
+    }
+}
+
+group 'com.appiancorp.example'
+version '1.1'
+
+repositories {
+    mavenCentral()
+    jcenter()
+    maven { url 'https://plugins.gradle.org/m2/' }
+}
+
+dependencies {
+    implementation fileTree(dir: 'lib/appian', include: ['*.jar'])
+    implementation 'io.cucumber:cucumber-java:6.8.2'
+    implementation 'com.brsanthu:google-analytics-java:2.0.0'
+    implementation 'com.fasterxml.jackson.core:jackson-annotations:2.12.1'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.12.1'
+    implementation 'com.google.code.gson:gson:2.8.6'
+    implementation 'com.jayway.jsonpath:json-path:2.6.0'
+    implementation 'commons-codec:commons-codec:1.15'
+    implementation 'commons-io:commons-io:2.11.0'
+    implementation 'org.apache.logging.log4j:log4j-core:2.17.1'
+    implementation 'org.apache.commons:commons-lang3:3.0'
+    implementation 'org.json:json:20201115'
+    implementation 'org.seleniumhq.selenium:selenium-java:4.1.2'
+    implementation 'io.github.bonigarcia:webdrivermanager:5.3.2'
+    implementation 'org.junit.jupiter:junit-jupiter:5.4.2'
+    implementation 'org.apache.commons:commons-text:1.10.0'
+    implementation 'com.thedeanda:lorem:2.1'
+    implementation 'com.aventstack:extentreports:5.0.9'
+
+}
+
+task tagSpecificTest(type: Test) {
+    useJUnitPlatform {
+        includeTags 'role'
+	testLogging {
+        	events "passed", "skipped", "failed"
+    	}
+    }
+}
