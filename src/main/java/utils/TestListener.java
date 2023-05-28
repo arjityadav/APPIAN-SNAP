@@ -2,13 +2,34 @@ package utils;
 
 import base.BaseClass;
 import org.junit.jupiter.api.extension.ExtensionContext;
-import org.junit.jupiter.api.extension.TestExecutionExceptionHandler;
-import java.util.Arrays;
+import org.junit.jupiter.api.extension.TestWatcher;
 
-public class TestListener extends BaseClass implements TestExecutionExceptionHandler {
+import java.util.Arrays;
+import java.util.Optional;
+
+public class TestListener extends BaseClass implements TestWatcher {
 
     @Override
-    public void handleTestExecutionException(ExtensionContext context, Throwable throwable) throws Throwable {
+    public void testAborted(ExtensionContext extensionContext, Throwable throwable) {
+        skippedTests++;
+        Report.logEvent("skip","ABORTED");
+    }
+
+    @Override
+    public void testDisabled(ExtensionContext extensionContext, Optional<String> optional) {
+        failedTests++;
+        Report.logEvent("fail","ABORTED");
+    }
+
+    @Override
+    public void testSuccessful(ExtensionContext extensionContext) {
+        passedTests++;
+        Report.logEvent("pass","PASSED");
+    }
+
+    @Override
+    public void testFailed(ExtensionContext context, Throwable cause) {
+        failedTests++;
         String name = String.valueOf(context.getRequiredTestMethod());
         String[] str1 = name.split(" ");
         name = str1[2];
@@ -16,7 +37,7 @@ public class TestListener extends BaseClass implements TestExecutionExceptionHan
         name = str2[0];
         String searchSubstring = name;
 
-        StackTraceElement[] stackTrace = throwable.getStackTrace();
+        StackTraceElement[] stackTrace = cause.getStackTrace();
 
         String[] stackTraceStrings = Arrays.stream(stackTrace)
                 .map(StackTraceElement::toString)
@@ -28,7 +49,6 @@ public class TestListener extends BaseClass implements TestExecutionExceptionHan
                 .orElse(null);
 
         String finalResult = result.substring(result.lastIndexOf("_") + 1);
-
         Report.logEvent("fail", "Failed at : " + finalResult);
     }
 }

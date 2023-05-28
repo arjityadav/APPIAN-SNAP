@@ -4,17 +4,14 @@ utils/Utility.java
  utils.Utility
 pageObjects/GenericObjects.java
  pageObjects.GenericObjects
-pageObjects/KnowledgePageObjects.java
- pageObjects.KnowledgePageObjects
 manager/DriverManager.java
  manager.DriverManager
 utils/Report.java
  utils.Report
+ utils.Report$1
 base/BaseClass.java
  base.BaseClass
-pageObjects/CreateNewRelatedObject.java
- pageObjects.CreateNewRelatedObject
-manager/PageObjectManager.java
- manager.PageObjectManager
 utils/TestListener.java
  utils.TestListener
+stepDefinition/HelloAppianStepDefinitions.java
+ stepDefinition.HelloAppianStepDefinitions

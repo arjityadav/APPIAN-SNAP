@@ -39,12 +39,31 @@ dependencies {
     implementation 'org.apache.commons:commons-text:1.10.0'
     implementation 'com.thedeanda:lorem:2.1'
     implementation 'com.aventstack:extentreports:5.0.9'
+    implementation 'javax.mail:javax.mail-api:1.6.2'
+    implementation 'com.sun.mail:smtp:1.6.2'
 
+}
+
+configurations {
+    cucumberRuntime {
+        extendsFrom testImplementation
+    }
+}
+
+task cucumber() {
+    dependsOn assemble, testClasses
+    doLast {
+        javaexec {
+            main = "io.cucumber.core.cli.Main"
+            classpath = configurations.cucumberRuntime + sourceSets.main.output + sourceSets.test.output
+            args = ['--plugin', 'pretty', '--glue', 'src/main/java/stepDefinition', 'src/test/java/featureScripts']
+        }
+    }
 }
 
 task tagSpecificTest(type: Test) {
     useJUnitPlatform {
-        includeTags 'role'
+        includeTags ''
 	testLogging {
         	events "passed", "skipped", "failed"
     	}

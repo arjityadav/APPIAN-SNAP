@@ -17,12 +17,11 @@ public class DriverManager extends BaseClass {
             case "CHROME":
                 WebDriverManager.chromedriver().setup();
                 ChromeOptions option = new ChromeOptions();
-//                option.addArguments("--user-data-dir=C:/Users/YADAVARC/AppData/Local/Google/Chrome/User Data/Default");
-                option.addArguments("--headless");
-                option.addArguments("--disable-gpu");
-                option.addArguments("--no-sandbox");
-                option.addArguments("--disable-dev-shm-usage");
-                option.addArguments("--window-size=1920,1080");
+//                option.addArguments("--headless");
+//                option.addArguments("--disable-gpu");
+//                option.addArguments("--no-sandbox");
+//                option.addArguments("--disable-dev-shm-usage");
+//                option.addArguments("--window-size=1920,1080");
                 option.addArguments("--disable-infobars");
                 option.addArguments("--ignore-ssl-errors=yes");
                 option.addArguments("--ignore-certificate-errors");
