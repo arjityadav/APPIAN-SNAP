@@ -18,7 +18,7 @@ public class TestListener extends BaseClass implements TestWatcher {
     @Override
     public void testDisabled(ExtensionContext extensionContext, Optional<String> optional) {
         failedTests++;
-        Report.logEvent("fail","ABORTED");
+        Report.logEvent("fail","DISABLED");
     }
 
     @Override

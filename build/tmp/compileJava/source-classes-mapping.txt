@@ -1,3 +1,5 @@
+stepDefinition/sampleStepDefinition.java
+ stepDefinition.sampleStepDefinition
 pageObjects/HomePageObjects.java
  pageObjects.HomePageObjects
 utils/Utility.java
@@ -13,5 +15,3 @@ base/BaseClass.java
  base.BaseClass
 utils/TestListener.java
  utils.TestListener
-stepDefinition/HelloAppianStepDefinitions.java
- stepDefinition.HelloAppianStepDefinitions

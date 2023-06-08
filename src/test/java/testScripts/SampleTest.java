@@ -8,10 +8,11 @@ public class SampleTest extends BaseClass {
     @Test
     public void sampleLogin(){
         logger = extent.createTest("Sample Test Login");
-        generic.login();
-        generic.clickOnSitePage("QA PRACTICE");
-        generic.clickOnLinkText("Add User");
-        generic.closeBrowser();
+        appianObject.login();
+//        generic.clickOnLinkText("QA Practice");
+        appianObject.clickOnLinkText("Add User");
+        fixture.populateFieldWithValue("Country","India");
+//        generic.closeBrowser();
     }
 
 }

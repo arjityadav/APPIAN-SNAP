@@ -12,8 +12,8 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.openqa.selenium.WebDriver;
-import pageObjects.GenericObjects;
-import pageObjects.HomePageObjects;
+import pageObjects.AppianObjects;
+import pageObjects.ProjectSpecificObjects;
 import utils.Report;
 import utils.TestListener;
 import utils.Utility;
@@ -23,10 +23,10 @@ import java.util.Properties;
 @ExtendWith(TestListener.class)
 public class BaseClass extends BaseFixture {
 
-    public static SitesFixture appianFeature;
+    public static SitesFixture fixture;
     public static WebDriver driver;
-    public static HomePageObjects homePage;
-    public static GenericObjects generic;
+    public static ProjectSpecificObjects projectObject;
+    public static AppianObjects appianObject;
     public static Utility util;
     public static ExtentSparkReporter reporter;
     public static ExtentReports extent;
@@ -38,7 +38,6 @@ public class BaseClass extends BaseFixture {
     public static int passedTests = 0;
     public static int failedTests = 0;
     public static int skippedTests = 0;
-    public static String ReportPath;
 
     @BeforeAll
     public static void reporting() {
@@ -49,10 +48,10 @@ public class BaseClass extends BaseFixture {
 
     @BeforeEach
     public void setUp() {
-        appianFeature = new SitesFixture();
+        fixture = new SitesFixture();
         this.setUpBrowser();
-        homePage = new HomePageObjects(driver);
-        generic = new GenericObjects(driver);
+        projectObject = new ProjectSpecificObjects(driver);
+        appianObject = new AppianObjects(driver);
         util = new Utility();
     }
 
@@ -62,16 +61,15 @@ public class BaseClass extends BaseFixture {
         Report.sendEmail();
     }
 
-
     public void setUpBrowser() {
         PropertiesUtilities.loadProperties();
         props = PropertiesUtilities.getProps();
         driver = DriverManager.setBrowser(props.getProperty("TEST_BROWSER"));
         DriverManager.setZoom(props.getProperty("TEST_ZOOM"));
-        appianFeature.setWebDriver(driver);
-        appianFeature.setAppianUrlTo(props.getProperty("TEST_SITE_URL"));
-        appianFeature.setAppianLocaleTo(props.getProperty("TEST_SITE_LOCALE"));
-        appianFeature.setAppianVersionTo(props.getProperty("TEST_SITE_VERSION"));
-        appianFeature.setTimeoutSecondsTo(Integer.valueOf(props.getProperty("TEST_TIMEOUT")));
+        fixture.setWebDriver(driver);
+        fixture.setAppianUrlTo(props.getProperty("TEST_SITE_URL"));
+        fixture.setAppianLocaleTo(props.getProperty("TEST_SITE_LOCALE"));
+        fixture.setAppianVersionTo(props.getProperty("TEST_SITE_VERSION"));
+        fixture.setTimeoutSecondsTo(Integer.valueOf(props.getProperty("TEST_TIMEOUT")));
     }
 }

@@ -23,6 +23,7 @@ repositories {
 dependencies {
     implementation fileTree(dir: 'lib/appian', include: ['*.jar'])
     implementation 'io.cucumber:cucumber-java:6.8.2'
+    implementation 'io.cucumber:cucumber-junit:6.8.2'
     implementation 'com.brsanthu:google-analytics-java:2.0.0'
     implementation 'com.fasterxml.jackson.core:jackson-annotations:2.12.1'
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.12.1'
@@ -42,23 +43,6 @@ dependencies {
     implementation 'javax.mail:javax.mail-api:1.6.2'
     implementation 'com.sun.mail:smtp:1.6.2'
 
-}
-
-configurations {
-    cucumberRuntime {
-        extendsFrom testImplementation
-    }
-}
-
-task cucumber() {
-    dependsOn assemble, testClasses
-    doLast {
-        javaexec {
-            main = "io.cucumber.core.cli.Main"
-            classpath = configurations.cucumberRuntime + sourceSets.main.output + sourceSets.test.output
-            args = ['--plugin', 'pretty', '--glue', 'src/main/java/stepDefinition', 'src/test/java/featureScripts']
-        }
-    }
 }
 
 task tagSpecificTest(type: Test) {
