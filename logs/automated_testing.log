@@ -18655,3 +18655,5 @@ Session ID: 793282e9ff78017223f2e89d8de1f475
 2023-06-08 12:04:25,523 [main] DEBUG com.appiancorp.ps.automatedtest.common.FixtureMetrics - userid=a8ca6a3dcc63680671f6e432823db6a4fa64e7049b4fbadc4a1f1b7c6747c58f, pipelineDimension=Standalone, testingFramework=FitNesse
 2023-06-08 12:05:21,777 [main] DEBUG com.appiancorp.ps.automatedtest.common.FixtureMetrics - userid=a8ca6a3dcc63680671f6e432823db6a4fa64e7049b4fbadc4a1f1b7c6747c58f, pipelineDimension=Standalone, testingFramework=FitNesse
 2023-06-08 12:05:58,118 [main] DEBUG com.appiancorp.ps.automatedtest.tempo.interfaces.TempoDropdownField - POPULATION [India]
+2023-06-09 11:54:52,699 [main] DEBUG com.appiancorp.ps.automatedtest.common.FixtureMetrics - userid=a8ca6a3dcc63680671f6e432823db6a4fa64e7049b4fbadc4a1f1b7c6747c58f, pipelineDimension=Standalone, testingFramework=FitNesse
+2023-06-09 11:55:11,844 [main] DEBUG com.appiancorp.ps.automatedtest.tempo.interfaces.TempoDropdownField - POPULATION [India]

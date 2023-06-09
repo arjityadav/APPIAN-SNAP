@@ -44,6 +44,7 @@ public class BaseClass extends BaseFixture {
         report = new Report();
         artifactsFolder = Utility.currentTimestamp();
         extent = report.startReporting();
+        util = new Utility();
     }
 
     @BeforeEach
@@ -52,7 +53,6 @@ public class BaseClass extends BaseFixture {
         this.setUpBrowser();
         projectObject = new ProjectSpecificObjects(driver);
         appianObject = new AppianObjects(driver);
-        util = new Utility();
     }
 
     @AfterAll
@@ -65,7 +65,7 @@ public class BaseClass extends BaseFixture {
         PropertiesUtilities.loadProperties();
         props = PropertiesUtilities.getProps();
         driver = DriverManager.setBrowser(props.getProperty("TEST_BROWSER"));
-        DriverManager.setZoom(props.getProperty("TEST_ZOOM"));
+        DriverManager.setZoom(props.getProperty("TEST_BROWSER_ZOOM"));
         fixture.setWebDriver(driver);
         fixture.setAppianUrlTo(props.getProperty("TEST_SITE_URL"));
         fixture.setAppianLocaleTo(props.getProperty("TEST_SITE_LOCALE"));

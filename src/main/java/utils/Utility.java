@@ -130,5 +130,11 @@ public class Utility extends BaseClass {
 
         return output.toString();
     }
+
+    public static String percentToDecimal(String percentage){
+        String valueString = percentage.replace("%", "");
+        double value = Double.parseDouble(valueString) / 100.0;
+        return String.valueOf(value);
+    }
 }
 

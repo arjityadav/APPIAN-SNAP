@@ -7,7 +7,6 @@ import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 
 import java.io.File;
 import java.net.InetAddress;
-import java.net.UnknownHostException;
 import java.util.Properties;
 import javax.mail.*;
 import javax.mail.internet.*;
@@ -41,7 +40,7 @@ public class Report extends BaseClass {
     }
 
     public static void sendEmail() {
-        String recipient = props.getProperty("toEmail");
+        String recipient = props.getProperty("TEST_REPORT_RECEIVER_EMAIL");
         String sender = "appcinoqa@gmail.com";
         String password = "eypulhncecqpbjkk";
         String subject = "Test Automation Report";

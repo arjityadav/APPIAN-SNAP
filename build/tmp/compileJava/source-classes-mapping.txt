@@ -1,13 +1,11 @@
-stepDefinition/sampleStepDefinition.java
- stepDefinition.sampleStepDefinition
-pageObjects/HomePageObjects.java
- pageObjects.HomePageObjects
 utils/Utility.java
  utils.Utility
-pageObjects/GenericObjects.java
- pageObjects.GenericObjects
+pageObjects/AppianObjects.java
+ pageObjects.AppianObjects
 manager/DriverManager.java
  manager.DriverManager
+pageObjects/ProjectSpecificObjects.java
+ pageObjects.ProjectSpecificObjects
 utils/Report.java
  utils.Report
  utils.Report$1
