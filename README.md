@@ -1,5 +1,5 @@
 # SNAP Appian Automation Framework!
-![LogoMakr-8W8bIg.png](..%2F..%2F..%2FDownloads%2FLogoMakr-8W8bIg.png)
+![SnapLogo](./SnapLogo/logo.png)
 ## Introduction
 
 > Introducing SNAP - Simplified Next-gen Automation Platform!
