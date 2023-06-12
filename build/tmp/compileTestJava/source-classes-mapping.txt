@@ -1,2 +1,2 @@
-testScripts/SampleTest.java
- testScripts.SampleTest
+scripts/SampleTest.java
+ scripts.SampleTest

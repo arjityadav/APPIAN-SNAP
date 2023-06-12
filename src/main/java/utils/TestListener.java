@@ -1,3 +1,9 @@
+/**
+ * Author: Xebia | Appcino
+ * Framework: SNAP Appian Test Framework (https://github.com/arjitappcino/Snap-Appian-Test-Framework)
+ * Class Description: This is Listener class. It is responsible to capture counts for Failures, Successes, and Skipped test cases.
+ */
+
 package utils;
 
 import base.BaseClass;

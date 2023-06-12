@@ -1,3 +1,9 @@
+/**
+ * Author: Xebia | Appcino
+ * Framework: SNAP Appian Test Framework (https://github.com/arjitappcino/Snap-Appian-Test-Framework)
+ * Class Description: This is a utility class which has various important methods that you'll be using while writing complex flows in test cases.
+ */
+
 package utils;
 
 import base.BaseClass;

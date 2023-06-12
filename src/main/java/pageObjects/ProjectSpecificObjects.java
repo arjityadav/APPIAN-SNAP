@@ -1,3 +1,9 @@
+/**
+ * Author: Xebia | Appcino
+ * Framework: SNAP Appian Test Framework (https://github.com/arjitappcino/Snap-Appian-Test-Framework)
+ * Class Description: All the project specific web elements and methods would be stored in this class via PAGE FACTORY APPROACH.
+ */
+
 package pageObjects;
 
 import base.BaseClass;

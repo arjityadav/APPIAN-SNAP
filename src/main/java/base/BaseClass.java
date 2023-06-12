@@ -1,3 +1,8 @@
+/**
+ * Author: Xebia | Appcino
+ * Framework: SNAP Appian Test Framework (https://github.com/arjitappcino/Snap-Appian-Test-Framework)
+ * Class Description: This is the base class of the framework via which everthing is started and ended. Feel free to get in touch to understand any of the frameworks objects.
+ */
 package base;
 
 import com.appiancorp.ps.automatedtest.common.PropertiesUtilities;

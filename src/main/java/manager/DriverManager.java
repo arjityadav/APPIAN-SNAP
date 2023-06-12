@@ -1,3 +1,10 @@
+/**
+ * Author: Xebia | Appcino
+ * Framework: SNAP Appian Test Framework (https://github.com/arjitappcino/Snap-Appian-Test-Framework)
+ * Class Description: This is the Driver Manager class. WebDriver for the test run is defined and initialized here.
+ * For now CHROME is fully functional. Other browsers will be added soon.
+ */
+
 package manager;
 
 import base.BaseClass;

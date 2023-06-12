@@ -1,3 +1,9 @@
+/**
+ * Author: Xebia | Appcino
+ * Framework: SNAP Appian Test Framework (https://github.com/arjitappcino/Snap-Appian-Test-Framework)
+ * Class Description: This is the class which is responsible for reporting each step and logging to the report.
+ */
+
 package utils;
 
 import base.BaseClass;
@@ -19,6 +25,10 @@ public class Report extends BaseClass {
         reporter = new ExtentSparkReporter(path);
         extent = new ExtentReports();
         extent.attachReporter(reporter);
+        String logoPath = currentDirectory + "/SnapLogo/logo.png";
+        reporter.config().setCss("img { height: 60px; }");
+        reporter.config().setCss(".brand-logo { width: auto; }");
+        reporter.config().setJs("$('.brand-logo').prepend('<img src=\"" + logoPath + "\" />');");
         return extent;
     }
 

@@ -8,9 +8,21 @@
 > Experience faster, reliable testing and unlock unparalleled efficiency.
 > Join the future of automation with SNAP!
 
-## Steps to Run
+## Required System Configuration
+1. Intellij Community Edition
+2. JDK - 8
+3. Git Bash
 
-1. Open this project in an IDE, such as IntelliJ IDEA or Eclipse.
+## Steps to run Sample Test present on the framework
+1. First open the framework in Intellij Community Edition
+2. Right click build.gradle and click on Build Module "Snap-Appian-Test-Framework"
+3. After the build is successful
+4. Go to 'src/test/java/scripts/SampleTest.java' and Right-click on the file
+5. Click Run "SampleTest"
+
+## Steps to configure according to the Project's Needs.
+
+1. Open this project in an IDE, such as [IntelliJ Community Edition](https://www.jetbrains.com/idea/download/#section=windows)
 2. Update configurations:
    1. Open file `configs/custom.properties`
    2. Update Project Related configs:
@@ -32,5 +44,11 @@
       2. Example:
          * TEST_REPORT_RECEIVER_EMAIL = arjit.yadav@appcino.com
 
-3. 
+   5. Intellij Specific Settings
+      1. Go to File > Settings > Build, Execution, Deployment > Build Tools > Gradle
+      2. Change 'Run Test Using' to _Intellij IDEA_
+      3. Change 'Gradle JVM' to 1.8
+   
+
+   
 
