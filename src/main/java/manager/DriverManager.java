@@ -51,7 +51,7 @@ public class DriverManager extends BaseClass {
     }
 
     public static void setZoom(String strZoomDecimal){
-        String strZoom = util.percentToDecimal(strZoomDecimal);
+        String strZoom = Utility.percentToDecimal(strZoomDecimal);
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("chrome.settingsPrivate.setDefaultZoom("+strZoom+");");
     }
