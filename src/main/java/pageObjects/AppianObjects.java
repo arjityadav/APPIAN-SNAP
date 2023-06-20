@@ -16,9 +16,6 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utils.Report;
 
-import java.util.Arrays;
-import java.util.List;
-
 public class AppianObjects extends BaseClass {
 
     @FindBy(id="un")
@@ -86,19 +83,31 @@ public class AppianObjects extends BaseClass {
 
     public void clickOnSitePage(String strSitePageName){
         fixture.clickOnSitePage(strSitePageName);
-        Report.logEvent("info", "Clicked on " + strSitePageName + " site page");
+        Report.logEvent("info", "Clicked on <i>" + strSitePageName + "</i> site page");
     }
 
-    public void setFieldWithSingleValue(String fieldName, String value){
+    /**
+     This method populates the specified field with the given value using the Appian API.
+     Can be used for Radio Buttons, Single Select Dropdown, Input Fields, Paragraphs, Search etc
+     @fieldName The name of the field to be set.
+     @value The value to assign to the field.
+     */
+    public void populateFieldWithSingleValue(String fieldName, String value){
         fixture.populateFieldWithValue(fieldName,value);
-        Report.logEvent("info","<b>Set "+fieldName+":</b> "+value);
+        Report.logEvent("info","Set <i>"+fieldName+"</i>: "+value);
     }
 
-    public void setFieldWithMultipleValue(String fieldName, String multipleValuesCommaSeparated){
+    /**
+     This method populates the specified field with the given multiple values using the Appian API.
+     Can be used for Checkboxes, Multi Select Dropdown, Multiple Input Taking Fields
+     @fieldName The name of the field to be set.
+     @multipleValuesCommaSeparated The values to assign to the field. ("Value A,Value B")
+     */
+    public void populateFieldWithMultipleValues(String fieldName, String multipleValuesCommaSeparated){
         String[] strValues = multipleValuesCommaSeparated.split(",");
         fixture.populateFieldWith(fieldName,strValues);
         String strValuesString = String.join(",", strValues);
-        Report.logEvent("info","Set "+fieldName+": "+strValuesString);
+        Report.logEvent("info","Set <i>"+fieldName+"</i>: "+strValuesString);
     }
 
     public void closeBrowser(){

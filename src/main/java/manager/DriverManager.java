@@ -14,26 +14,27 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
+import utils.Utility;
 
 public class DriverManager extends BaseClass {
 
-    public static WebDriver setBrowser(String browserType){
+    public static WebDriver setBrowser(String browserType) {
         WebDriver driver;
 //        String currentUser = System.getProperty("user.name");
-        switch (browserType){
+        switch (browserType) {
             case "CHROME":
                 WebDriverManager.chromedriver().setup();
                 ChromeOptions option = new ChromeOptions();
-//                option.addArguments("--headless");
-//                option.addArguments("--disable-gpu");
-//                option.addArguments("--no-sandbox");
-//                option.addArguments("--disable-dev-shm-usage");
-//                option.addArguments("--window-size=1920,1080");
+                option.addArguments("--no-sandbox");
+                option.addArguments("--disable-dev-shm-usage");
                 option.addArguments("--disable-infobars");
                 option.addArguments("--ignore-ssl-errors=yes");
                 option.addArguments("--ignore-certificate-errors");
                 option.addArguments("--remote-allow-origins=*");
                 option.addArguments("--start-maximized");
+//                option.addArguments("--headless");
+//                option.addArguments("--disable-gpu");
+//                option.addArguments("--window-size=1920,1080");
                 driver = new ChromeDriver(option);
                 driver.get("chrome://settings/");
                 break;
@@ -50,9 +51,9 @@ public class DriverManager extends BaseClass {
         return driver;
     }
 
-    public static void setZoom(String strZoomDecimal){
-        String strZoom = util.percentToDecimal(strZoomDecimal);
+    public static void setZoom(String strZoomDecimal) {
+        String strZoom = Utility.percentToDecimal(strZoomDecimal);
         JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("chrome.settingsPrivate.setDefaultZoom("+strZoom+");");
+        js.executeScript("chrome.settingsPrivate.setDefaultZoom(" + strZoom + ");");
     }
 }
