@@ -26,8 +26,8 @@ public class DriverManager extends BaseClass {
                 ChromeOptions option = new ChromeOptions();
 //                option.addArguments("--headless");
 //                option.addArguments("--disable-gpu");
-//                option.addArguments("--no-sandbox");
-//                option.addArguments("--disable-dev-shm-usage");
+                option.addArguments("--no-sandbox");
+                option.addArguments("--disable-dev-shm-usage");
 //                option.addArguments("--window-size=1920,1080");
                 option.addArguments("--disable-infobars");
                 option.addArguments("--ignore-ssl-errors=yes");

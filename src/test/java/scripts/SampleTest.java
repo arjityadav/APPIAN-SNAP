@@ -17,17 +17,17 @@ public class SampleTest extends BaseClass {
         appianObject.login();
         appianObject.clickOnText("QA Practice"); //site page
         appianObject.clickOnText("Add User"); //card type
-        appianObject.setFieldWithSingleValue("First Name","user1"); //text field
-        appianObject.setFieldWithSingleValue("Last Name","name1"); //text field
-        appianObject.setFieldWithSingleValue("Address","Patrika, Jaipur"); //paragraph field
-        appianObject.setFieldWithSingleValue("Email","arjit@abc.com"); //email field
-        appianObject.setFieldWithSingleValue("Phone","7894561203"); //phone field
-        appianObject.setFieldWithSingleValue("Gender","Male"); //radio button
-        appianObject.setFieldWithMultipleValue("Interests","Automation Testing,Manual Testing"); //Checkboxes
-        appianObject.setFieldWithSingleValue("Instagram Handle","@arjityadavv"); //text field
-        appianObject.setFieldWithMultipleValue("Languages","Arabic,Hindi"); //dropdown field
-        appianObject.setFieldWithSingleValue("Skill","API"); //dropdown field
-        appianObject.setFieldWithSingleValue("Country","India"); //dropdown field
+        appianObject.populateFieldWithSingleValue("First Name","user1"); //text field
+        appianObject.populateFieldWithSingleValue("Last Name","name1"); //text field
+        appianObject.populateFieldWithSingleValue("Address","Patrika, Jaipur"); //paragraph field
+        appianObject.populateFieldWithSingleValue("Email","arjit@abc.com"); //email field
+        appianObject.populateFieldWithSingleValue("Phone","7894561203"); //phone field
+        appianObject.populateFieldWithSingleValue("Gender","Male"); //radio button
+        appianObject.populateFieldWithMultipleValues("Interests","Automation Testing,Manual Testing"); //Checkboxes
+        appianObject.populateFieldWithSingleValue("Instagram Handle","@arjityadavv"); //text field
+        appianObject.populateFieldWithMultipleValues("Languages","Arabic,Hindi"); //dropdown field
+        appianObject.populateFieldWithSingleValue("Skill","API"); //dropdown field
+        appianObject.populateFieldWithSingleValue("Country","India"); //dropdown field
         appianObject.clickOnButton("SUBMIT");
         appianObject.logout();
         appianObject.closeBrowser();
