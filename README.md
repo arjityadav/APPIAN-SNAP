@@ -10,7 +10,7 @@
 
 ## Required System Configuration
 1. Intellij Community Edition
-2. JDK - 8
+2. JDK - 11 (Update compiler to Java 11 on Intellij and Also update the same on global level on your pc)
 3. Git Bash
 
 ## Steps to run Sample Test present on the framework
