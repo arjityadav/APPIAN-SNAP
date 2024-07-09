@@ -30,24 +30,24 @@
       2. TEST_SITE_URL = *Enter Website URL you want to test*
       3. Example:
          * TEST_BROWSER = CHROME
-         * TEST_SITE_URL = https://pjjb.appian.community/suite/sites/nexus-intranet/
+         * TEST_SITE_URL = *Present inside the code*
 
    3. Update User Related Configs
       1. TEST_USERNAME = *Enter Username to login*
       2. TEST_PASSWORD = *Enter Password to login*
       3. Example:
-         * TEST_USERNAME = demo_user
-         * TEST_PASSWORD = demouser1
+         * TEST_USERNAME = *Present inside the code*
+         * TEST_PASSWORD = *Present inside the code*
    
-   4. Update Report to Email Related Configs
+   4. Update Report to Email Related Configs (This feature requires additional security approvals, wont suggest to be used on personal mail ID)
       1. TEST_REPORT_RECEIVER_EMAIL = *Enter Email on which you want to receive test report*
       2. Example:
-         * TEST_REPORT_RECEIVER_EMAIL = arjit.yadav@appcino.com
+         * TEST_REPORT_RECEIVER_EMAIL = *PUT IN YOUR MAIL ID*
 
    5. Intellij Specific Settings
       1. Go to File > Settings > Build, Execution, Deployment > Build Tools > Gradle
       2. Change 'Run Test Using' to _Intellij IDEA_
-      3. Change 'Gradle JVM' to 1.8
+      3. Change 'Gradle JVM' to 11
    
 
    
