@@ -23,6 +23,7 @@ import utils.Report;
 import utils.TestListener;
 import utils.Utility;
 
+import java.io.IOException;
 import java.util.Properties;
 
 @ExtendWith(TestListener.class)
@@ -45,7 +46,8 @@ public class BaseClass extends BaseFixture {
     public static int skippedTests = 0;
 
     @BeforeAll
-    public static void reporting() {
+    public static void reporting() throws IOException {
+        Utility.deleteDirectoryContents(".\\testResults");
         report = new Report();
         artifactsFolder = Utility.currentTimestamp();
         extent = report.startReporting();
@@ -61,9 +63,11 @@ public class BaseClass extends BaseFixture {
     }
 
     @AfterAll
-    public static void extentFlush() {
+    public static void extentFlush() throws IOException {
         extent.flush();
-        Report.sendEmail();
+        driver.quit();
+        Utility.openReportInBrowser("testResults");
+//        Report.sendEmail();
     }
 
     public void setUpBrowser() {

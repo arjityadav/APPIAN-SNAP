@@ -10,11 +10,11 @@ import base.BaseClass;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 
+import java.awt.*;
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+import java.nio.file.*;
+import java.nio.file.attribute.BasicFileAttributes;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -141,6 +141,63 @@ public class Utility extends BaseClass {
         String valueString = percentage.replace("%", "");
         double value = Double.parseDouble(valueString) / 100.0;
         return String.valueOf(value);
+    }
+
+    public static void deleteDirectoryContents(String directoryPath) throws IOException {
+        Path path = Paths.get(directoryPath);
+        if (Files.exists(path) && Files.isDirectory(path)) {
+            Files.walkFileTree(path, new SimpleFileVisitor<Path>() {
+                @Override
+                public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
+                    Files.delete(file);
+                    return FileVisitResult.CONTINUE;
+                }
+
+                @Override
+                public FileVisitResult postVisitDirectory(Path dir, IOException exc) throws IOException {
+                    if (exc == null) {
+                        Files.delete(dir);
+                        return FileVisitResult.CONTINUE;
+                    } else {
+                        throw exc;
+                    }
+                }
+            });
+        } else {
+            throw new IllegalArgumentException("The provided path is either not a directory or does not exist.");
+        }
+    }
+    public static void openReportInBrowser(String directoryPath) throws IOException {
+        Path dirPath = Paths.get(directoryPath);
+        if (Files.exists(dirPath) && Files.isDirectory(dirPath)) {
+            try (DirectoryStream<Path> stream = Files.newDirectoryStream(dirPath)) {
+                for (Path entry : stream) {
+                    if (Files.isDirectory(entry)) {
+                        Path reportPath = entry.resolve("report.html");
+                        if (Files.exists(reportPath) && Files.isRegularFile(reportPath)) {
+                            openFileInBrowser(reportPath.toFile());
+                            return;
+                        }
+                    }
+                }
+                throw new IllegalArgumentException("No 'Report.html' file found in subfolders.");
+            }
+        } else {
+            throw new IllegalArgumentException("The provided path is either not a directory or does not exist.");
+        }
+    }
+
+    private static void openFileInBrowser(File file) throws IOException {
+        if (Desktop.isDesktopSupported()) {
+            Desktop desktop = Desktop.getDesktop();
+            if (file.exists()) {
+                desktop.browse(file.toURI());
+            } else {
+                throw new IllegalArgumentException("The file does not exist.");
+            }
+        } else {
+            throw new UnsupportedOperationException("Desktop is not supported on this system.");
+        }
     }
 }
 

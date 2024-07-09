@@ -8,7 +8,6 @@
 package manager;
 
 import base.BaseClass;
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -23,7 +22,7 @@ public class DriverManager extends BaseClass {
 //        String currentUser = System.getProperty("user.name");
         switch (browserType) {
             case "CHROME":
-                WebDriverManager.chromedriver().setup();
+//                WebDriverManager.chromedriver().setup();
                 ChromeOptions option = new ChromeOptions();
                 option.addArguments("--no-sandbox");
                 option.addArguments("--disable-dev-shm-usage");
@@ -40,7 +39,7 @@ public class DriverManager extends BaseClass {
                 break;
 
             case "EDGE":
-                WebDriverManager.edgedriver().setup();
+//                WebDriverManager.edgedriver().setup();
                 driver = new EdgeDriver();
                 driver.manage().window().maximize();
                 break;

@@ -45,18 +45,17 @@ public class AppianObjects extends BaseClass {
         String password = props.getProperty("TEST_PASSWORD");
         String url = props.getProperty("TEST_SITE_URL");
         driver.get(url);
-        agreeBtn.click();
         inputUsername.sendKeys(username);
         inputPassword.sendKeys(password);
         Report.logEvent("pass", "Hit Url");
         signinBtn.click();
-        fixture.waitForSeconds(10);
+        fixture.waitForProgressBar();
         Report.logEvent("pass", "Login Successful");
     }
 
     public void logout(){
-        userProfileIcon.click();
-        signoutBtn.click();
+        fixture.refresh();
+        fixture.logout();
     }
 
     public void clickOnButton(String strButton) {
@@ -114,4 +113,8 @@ public class AppianObjects extends BaseClass {
         driver.quit();
     }
 
+    public void clickOnCard(String linkName){
+        fixture.clickOnCard(linkName);
+        Report.logEvent("info","Card clicked "+linkName);
+    }
 }

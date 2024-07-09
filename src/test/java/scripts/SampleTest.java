@@ -15,11 +15,11 @@ public class SampleTest extends BaseClass {
     public void sampleLogin(){
         logger = extent.createTest("Sample Test Login");
         appianObject.login();
-        appianObject.clickOnText("QA Practice"); //site page
-        appianObject.clickOnText("Add User"); //card type
-        appianObject.populateFieldWithSingleValue("First Name","user1"); //text field
-        appianObject.populateFieldWithSingleValue("Last Name","name1"); //text field
-        appianObject.populateFieldWithSingleValue("Address","Patrika, Jaipur"); //paragraph field
+        appianObject.clickOnSitePage("DEMO QA"); //site page
+        appianObject.clickOnCard("Add User Link"); //card type
+        appianObject.populateFieldWithSingleValue("First Name", fixture.getRandomAlphabetString(5)); //text field
+        appianObject.populateFieldWithSingleValue("Last Name", fixture.getRandomAlphabetString(5)); //text field
+        appianObject.populateFieldWithSingleValue("Address","Jaipur"); //paragraph field
         appianObject.populateFieldWithSingleValue("Email","arjit@abc.com"); //email field
         appianObject.populateFieldWithSingleValue("Phone","7894561203"); //phone field
         appianObject.populateFieldWithSingleValue("Gender","Male"); //radio button

@@ -51,8 +51,8 @@ public class Report extends BaseClass {
 
     public static void sendEmail() {
         String recipient = props.getProperty("TEST_REPORT_RECEIVER_EMAIL");
-        String sender = "appcinoqa@gmail.com";
-        String password = "eypulhncecqpbjkk";
+        String sender = ""; //personal mail id
+        String password = ""; //generated password
         String subject = "Test Automation Report";
 
         String tableHtml = tableHTML();
